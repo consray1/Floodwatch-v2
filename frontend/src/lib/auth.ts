@@ -46,6 +46,7 @@ export const authService = {
   async logout(): Promise<void> {
     try {
       await api.post('/auth/logout');
+    } catch {
     } finally {
       Cookies.remove('access_token');
       Cookies.remove('refresh_token');

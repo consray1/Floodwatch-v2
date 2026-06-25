@@ -1,9 +1,9 @@
 'use client';
 
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { cn } from '@/lib/utils';
-import { AlertTriangle, MapPin, FileText, LayoutDashboard, LogOut } from 'lucide-react';
+import { AlertTriangle, FileText, LayoutDashboard, LogOut } from 'lucide-react';
 import { authService } from '@/lib/auth';
 
 const navItems = [
@@ -18,10 +18,11 @@ export default function DashboardLayout({
   children: React.ReactNode;
 }) {
   const pathname = usePathname();
+  const router = useRouter();
 
   const handleLogout = async () => {
     await authService.logout();
-    window.location.href = '/login';
+    router.push('/login');
   };
 
   return (
