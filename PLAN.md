@@ -123,21 +123,21 @@ frontend/
 ```
 
 ## Build Order (15 Steps)
-1. Root files (docker-compose.yml, .env.example, .gitignore)
-2. Backend: requirements.txt, Dockerfile, config
-3. Backend: SQLAlchemy models + Alembic migrations
-4. Backend: Auth (JWT, password hashing, RBAC)
-5. Backend: CRUD endpoints (reports, incidents, alerts)
-6. Backend: Webhooks + Twilio service + Whisper service
-7. Backend: AI stubs
-8. Backend: Tests (pytest, 80% coverage)
-9. Frontend: Next.js scaffold + Tailwind + shadcn/ui
-10. Frontend: API client lib
-11. Frontend: Auth pages (login/register)
-12. Frontend: Dashboard + Leaflet map
-13. Frontend: Report submission form
-14. Frontend: Incident list + Alert banner
-15. README + final polish
+- [x] 1. Root files (docker-compose.yml, .env.example, .gitignore)
+- [ ] 2. Backend: requirements.txt, Dockerfile, config
+- [ ] 3. Backend: SQLAlchemy models + Alembic migrations
+- [ ] 4. Backend: Auth (JWT, password hashing, RBAC)
+- [ ] 5. Backend: CRUD endpoints (reports, incidents, alerts)
+- [ ] 6. Backend: Webhooks + Twilio service + Whisper service
+- [ ] 7. Backend: AI stubs
+- [ ] 8. Backend: Tests (pytest, 80% coverage)
+- [x] 9. Frontend: Next.js scaffold + Tailwind + shadcn/ui
+- [x] 10. Frontend: API client lib
+- [x] 11. Frontend: Auth pages (login/register)
+- [x] 12. Frontend: Dashboard + Leaflet map
+- [x] 13. Frontend: Report submission form
+- [x] 14. Frontend: Incident list + Alert banner
+- [ ] 15. README + final polish
 
 ## Key Decisions
 - Map: Leaflet (free, no API key)
