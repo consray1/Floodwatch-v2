@@ -1,5 +1,6 @@
 import NextAuth, { NextAuthOptions } from 'next-auth';
 import GoogleProvider from 'next-auth/providers/google';
+import AppleProvider from 'next-auth/providers/apple';
 import CredentialsProvider from 'next-auth/providers/credentials';
 import { authService } from '@/lib/auth';
 
@@ -8,6 +9,12 @@ export const authOptions: NextAuthOptions = {
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID || '',
       clientSecret: process.env.GOOGLE_CLIENT_SECRET || '',
+    }),
+    AppleProvider({
+      clientId: process.env.APPLE_CLIENT_ID || '',
+      teamId: process.env.APPLE_TEAM_ID || '',
+      keyId: process.env.APPLE_KEY_ID || '',
+      privateKey: process.env.APPLE_PRIVATE_KEY || '',
     }),
     CredentialsProvider({
       name: 'Credentials',
@@ -61,6 +68,24 @@ export const authOptions: NextAuthOptions = {
               email: user.email,
               name: user.name,
               google_id: user.id,
+            }),
+          });
+          if (!response.ok) {
+            return false;
+          }
+        } catch {
+          return false;
+        }
+      }
+      if (account?.provider === 'apple') {
+        try {
+          const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/auth/apple`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              email: user.email,
+              name: user.name,
+              apple_id: user.id,
             }),
           });
           if (!response.ok) {
