@@ -50,6 +50,12 @@ const config: Config = {
           high: '#f97316',
           critical: '#ef4444',
         },
+        // Brand green - #60c840
+        brand: {
+          DEFAULT: '#60c840',
+          light: '#7dd356',
+          dark: '#4ba82e',
+        },
       },
       borderRadius: {
         lg: 'var(--radius)',
